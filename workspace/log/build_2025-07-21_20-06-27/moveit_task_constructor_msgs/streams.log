@@ -1,0 +1,50 @@
+[0.019s] Invoking command in '/workspaces/shared/build/moveit_task_constructor_msgs': AMENT_PREFIX_PATH=/workspaces/shared/install/moveit_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/workspaces/shared/install/moveit_msgs:/workspaces/moveit2_ws/install/pilz_industrial_motion_planner_testutils:/workspaces/moveit2_ws/install/moveit_runtime:/workspaces/moveit2_ws/install/moveit:/workspaces/moveit2_ws/install/moveit_planners:/workspaces/moveit2_ws/install/pilz_industrial_motion_planner:/workspaces/moveit2_ws/install/moveit_ros_control_interface:/workspaces/moveit2_ws/install/moveit_plugins:/workspaces/moveit2_ws/install/moveit_simple_controller_manager:/workspaces/moveit2_ws/install/moveit_setup_assistant:/workspaces/moveit2_ws/install/moveit_setup_srdf_plugins:/workspaces/moveit2_ws/install/moveit_setup_core_plugins:/workspaces/moveit2_ws/install/moveit_setup_controllers:/workspaces/moveit2_ws/install/moveit_setup_app_plugins:/workspaces/moveit2_ws/install/moveit_setup_framework:/workspaces/moveit2_ws/install/moveit_servo:/workspaces/moveit2_ws/install/moveit_ros_trajectory_cache:/workspaces/moveit2_ws/install/moveit_ros:/workspaces/moveit2_ws/install/moveit_ros_visualization:/workspaces/moveit2_ws/install/moveit_py:/workspaces/moveit2_ws/install/moveit_hybrid_planning:/workspaces/moveit2_ws/install/moveit_ros_planning_interface:/workspaces/moveit2_ws/install/moveit_ros_benchmarks:/workspaces/moveit2_ws/install/moveit_ros_warehouse:/workspaces/moveit2_ws/install/moveit_ros_robot_interaction:/workspaces/moveit2_ws/install/moveit_ros_perception:/workspaces/moveit2_ws/install/moveit_resources_prbt_pg70_support:/workspaces/moveit2_ws/install/moveit_resources_prbt_moveit_config:/workspaces/moveit2_ws/install/moveit_ros_move_group:/workspaces/moveit2_ws/install/moveit_planners_ompl:/workspaces/moveit2_ws/install/moveit_kinematics:/workspaces/moveit2_ws/install/moveit_ros_planning:/workspaces/moveit2_ws/install/moveit_ros_occupancy_map_monitor:/workspaces/moveit2_ws/install/moveit_resources_prbt_support:/workspaces/moveit2_ws/install/moveit_resources_prbt_ikfast_manipulator_plugin:/workspaces/moveit2_ws/install/moveit_resources:/workspaces/moveit2_ws/install/moveit_resources_pr2_description:/workspaces/moveit2_ws/install/moveit_resources_panda_moveit_config:/workspaces/moveit2_ws/install/dual_arm_panda_moveit_config:/workspaces/moveit2_ws/install/moveit_resources_panda_description:/workspaces/moveit2_ws/install/moveit_resources_fanuc_moveit_config:/workspaces/moveit2_ws/install/moveit_resources_fanuc_description:/workspaces/moveit2_ws/install/moveit_planners_stomp:/workspaces/moveit2_ws/install/moveit_planners_chomp:/workspaces/moveit2_ws/install/chomp_motion_planner:/workspaces/moveit2_ws/install/moveit_core:/workspaces/moveit2_ws/install/moveit_msgs:/workspaces/moveit2_ws/install/moveit_common:/workspaces/moveit2_ws/install/moveit_configs_utils:/opt/ros/humble LD_LIBRARY_PATH=/workspaces/shared/install/moveit_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/workspaces/shared/install/moveit_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /workspaces/shared/build/moveit_task_constructor_msgs -- -j24 -l24
+[0.082s] [35m[1mConsolidate compiler generated dependencies of target moveit_task_constructor_msgs__rosidl_generator_c[0m
+[0.098s] [  0%] Built target moveit_task_constructor_msgs__cpp
+[0.105s] [ 12%] Built target moveit_task_constructor_msgs__rosidl_generator_c
+[0.110s] [ 12%] Built target ament_cmake_python_copy_moveit_task_constructor_msgs
+[0.117s] [35m[1mConsolidate compiler generated dependencies of target moveit_task_constructor_msgs__rosidl_typesupport_cpp[0m
+[0.118s] [35m[1mConsolidate compiler generated dependencies of target moveit_task_constructor_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[0.118s] [35m[1mConsolidate compiler generated dependencies of target moveit_task_constructor_msgs__rosidl_typesupport_introspection_cpp[0m
+[0.123s] [35m[1mConsolidate compiler generated dependencies of target moveit_task_constructor_msgs__rosidl_typesupport_c[0m
+[0.124s] [35m[1mConsolidate compiler generated dependencies of target moveit_task_constructor_msgs__rosidl_typesupport_introspection_c[0m
+[0.126s] [35m[1mConsolidate compiler generated dependencies of target moveit_task_constructor_msgs__rosidl_typesupport_fastrtps_c[0m
+[0.146s] [ 24%] Built target moveit_task_constructor_msgs__rosidl_typesupport_c
+[0.147s] [ 36%] Built target moveit_task_constructor_msgs__rosidl_typesupport_cpp
+[0.149s] [ 47%] Built target moveit_task_constructor_msgs__rosidl_typesupport_fastrtps_cpp
+[0.150s] [ 59%] Built target moveit_task_constructor_msgs__rosidl_typesupport_introspection_cpp
+[0.150s] [ 71%] Built target moveit_task_constructor_msgs__rosidl_typesupport_introspection_c
+[0.158s] [ 83%] Built target moveit_task_constructor_msgs__rosidl_typesupport_fastrtps_c
+[0.191s] [ 83%] Built target moveit_task_constructor_msgs
+[0.225s] [ 84%] [34m[1mGenerating Python code for ROS interfaces[0m
+[0.321s] running egg_info
+[0.321s] writing moveit_task_constructor_msgs.egg-info/PKG-INFO
+[0.321s] writing dependency_links to moveit_task_constructor_msgs.egg-info/dependency_links.txt
+[0.322s] writing top-level names to moveit_task_constructor_msgs.egg-info/top_level.txt
+[0.323s] reading manifest file 'moveit_task_constructor_msgs.egg-info/SOURCES.txt'
+[0.323s] writing manifest file 'moveit_task_constructor_msgs.egg-info/SOURCES.txt'
+[0.348s] [ 84%] Built target ament_cmake_python_build_moveit_task_constructor_msgs_egg
+[1.769s] [ 84%] Built target moveit_task_constructor_msgs__py
+[1.799s] [ 84%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_solution_info_s.c.o[0m
+[1.799s] [ 85%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_stage_description_s.c.o[0m
+[1.799s] [ 86%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_solution_s.c.o[0m
+[1.800s] [ 87%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_property_s.c.o[0m
+[1.801s] [ 88%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_stage_statistics_s.c.o[0m
+[1.801s] [ 89%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_sub_trajectory_s.c.o[0m
+[1.802s] [ 90%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_task_description_s.c.o[0m
+[1.802s] [ 91%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_sub_solution_s.c.o[0m
+[1.802s] [ 91%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_trajectory_execution_info_s.c.o[0m
+[1.802s] [ 92%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/srv/_get_solution_s.c.o[0m
+[1.804s] [ 93%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/action/_execute_task_solution_s.c.o[0m
+[1.804s] [ 94%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_generator_py.dir/rosidl_generator_py/moveit_task_constructor_msgs/msg/_task_statistics_s.c.o[0m
+[2.022s] [ 95%] [32m[1mLinking C shared library rosidl_generator_py/moveit_task_constructor_msgs/libmoveit_task_constructor_msgs__rosidl_generator_py.so[0m
+[2.081s] [ 95%] Built target moveit_task_constructor_msgs__rosidl_generator_py
+[2.112s] [ 96%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/moveit_task_constructor_msgs/_moveit_task_constructor_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[2.114s] [ 96%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/moveit_task_constructor_msgs/_moveit_task_constructor_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[2.114s] [ 97%] [32mBuilding C object CMakeFiles/moveit_task_constructor_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/moveit_task_constructor_msgs/_moveit_task_constructor_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[2.369s] [ 98%] [32m[1mLinking C shared library rosidl_generator_py/moveit_task_constructor_msgs/moveit_task_constructor_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.379s] [ 99%] [32m[1mLinking C shared library rosidl_generator_py/moveit_task_constructor_msgs/moveit_task_constructor_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.379s] [100%] [32m[1mLinking C shared library rosidl_generator_py/moveit_task_constructor_msgs/moveit_task_constructor_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.438s] [100%] Built target moveit_task_constructor_msgs__rosidl_typesupport_c__pyext
+[2.445s] [100%] Built target moveit_task_constructor_msgs__rosidl_typesupport_introspection_c__pyext
+[2.446s] [100%] Built target moveit_task_constructor_msgs__rosidl_typesupport_fastrtps_c__pyext

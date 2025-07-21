@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  moveit2:
+    build:
+      context: docker
+      dockerfile: Dockerfile.moveit2
+      args:
+        BASE_IMAGE: osrf/ros:humble-desktop-full
+        ROS_DISTRO: humble
+    image: moveit2:humble
+    container_name: moveit2_container
+    stdin_open: true
+    tty: true
+    network_mode: host
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ./workspace:/workspaces/shared:rw
+      - /dev:/dev:rw
+    working_dir: /workspaces/moveit2_ws
+    command: /bin/bash
+    restart: unless-stopped
+
+  # Optional: Development container with additional tools
+  moveit2-dev:
+    build:
+      context: docker
+      dockerfile: Dockerfile.moveit2
+      args:
+        BASE_IMAGE: osrf/ros:humble-desktop-full
+        ROS_DISTRO: humble
+    image: moveit2:humble
+    container_name: moveit2_dev_container
+    stdin_open: true
+    tty: true
+    network_mode: host
+    privileged: true
+    environment:
+      - DISPLAY=${DISPLAY:-:0}
+      - QT_X11_NO_MITSHM=1
+      - XAUTHORITY=/tmp/.docker.xauth
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - ./workspace:/workspaces/shared:rw
+      - ./config:/workspaces/config:rw
+      - /dev:/dev:rw
+    working_dir: /workspaces/moveit2_ws
+    command: /bin/bash -c "source /workspaces/moveit2_ws/install/setup.bash && /bin/bash"
+    restart: unless-stopped
+    profiles:
+      - dev

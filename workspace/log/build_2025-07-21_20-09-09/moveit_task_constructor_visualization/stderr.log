@@ -1,0 +1,10 @@
+gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:104: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/marker_visualization.cpp.o] Interrupt
+gmake[2]: *** [gtest/CMakeFiles/gtest.dir/build.make:90: gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o] Interrupt
+gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:90: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/display_solution.cpp.o] Interrupt
+gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:76: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/moveit_task_visualization_tools_autogen/mocs_compilation.cpp.o] Interrupt
+gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:132: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/task_solution_visualization.cpp.o] Interrupt
+gmake[2]: *** [gmock/CMakeFiles/gmock.dir/build.make:90: gmock/CMakeFiles/gmock.dir/opt/ros/humble/src/gtest_vendor/src/gtest-all.cc.o] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:681: gtest/CMakeFiles/gtest.dir/all] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:291: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/all] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:785: gmock/CMakeFiles/gmock.dir/all] Interrupt
+gmake: *** [Makefile:146: all] Interrupt

@@ -1,0 +1,9 @@
+# CMake generated Testfile for 
+# Source directory: /workspaces/shared/src/moveit2_tutorials/doc/tutorials/quickstart_in_rviz
+# Build directory: /workspaces/shared/build/moveit2_tutorials/doc/tutorials/quickstart_in_rviz
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test([=[doc_tutorials_quickstart_in_rviz_test_bringup_test.test.py]=] "/usr/bin/python3" "-u" "/opt/ros/humble/share/ament_cmake_test/cmake/run_test.py" "/workspaces/shared/build/moveit2_tutorials/test_results/moveit2_tutorials/doc_tutorials_quickstart_in_rviz_test_bringup_test.test.py.xunit.xml" "--package-name" "moveit2_tutorials" "--output-file" "/workspaces/shared/build/moveit2_tutorials/ros_test/doc_tutorials_quickstart_in_rviz_test_bringup_test.test.py.txt" "--command" "ros2" "test" "/workspaces/shared/src/moveit2_tutorials/doc/tutorials/quickstart_in_rviz/test/bringup_test.test.py" "test_binary_dir:=/workspaces/shared/build/moveit2_tutorials/doc/tutorials/quickstart_in_rviz" "--junit-xml=/workspaces/shared/build/moveit2_tutorials/test_results/moveit2_tutorials/doc_tutorials_quickstart_in_rviz_test_bringup_test.test.py.xunit.xml" "--package-name=moveit2_tutorials")
+set_tests_properties([=[doc_tutorials_quickstart_in_rviz_test_bringup_test.test.py]=] PROPERTIES  TIMEOUT "120" WORKING_DIRECTORY "/workspaces/shared/build/moveit2_tutorials/doc/tutorials/quickstart_in_rviz" _BACKTRACE_TRIPLES "/opt/ros/humble/share/ament_cmake_test/cmake/ament_add_test.cmake;125;add_test;/opt/ros/humble/share/ros_testing/cmake/add_ros_test.cmake;73;ament_add_test;/workspaces/shared/src/moveit2_tutorials/doc/tutorials/quickstart_in_rviz/CMakeLists.txt;17;add_ros_test;/workspaces/shared/src/moveit2_tutorials/doc/tutorials/quickstart_in_rviz/CMakeLists.txt;0;")
+subdirs("../../../gtest")

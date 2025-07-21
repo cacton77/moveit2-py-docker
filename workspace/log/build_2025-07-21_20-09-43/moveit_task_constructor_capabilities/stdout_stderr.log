@@ -1,0 +1,29 @@
+[ 12%] [32mBuilding CXX object CMakeFiles/moveit_task_constructor_capabilities.dir/src/execute_task_solution_capability.cpp.o[0m
+[ 37%] Built target gtest_main
+[ 62%] Built target gtest
+[ 75%] [32mBuilding CXX object test/CMakeFiles/test_execution.dir/test_task_execution.cpp.o[0m
+[ 87%] [32m[1mLinking CXX executable test_execution[0m
+[ 87%] Built target test_execution
+[100%] [32m[1mLinking CXX shared library libmoveit_task_constructor_capabilities.so[0m
+[100%] Built target moveit_task_constructor_capabilities
+-- Install configuration: "Release"
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/lib/libmoveit_task_constructor_capabilities.so
+-- Set runtime path of "/workspaces/shared/install/moveit_task_constructor_capabilities/lib/libmoveit_task_constructor_capabilities.so" to ""
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/capabilities_plugin_description.xml
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/ament_index/resource_index/package_run_dependencies/moveit_task_constructor_capabilities
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/ament_index/resource_index/parent_prefix_path/moveit_task_constructor_capabilities
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/environment/ament_prefix_path.sh
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/environment/ament_prefix_path.dsv
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/environment/path.sh
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/environment/path.dsv
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/local_setup.bash
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/local_setup.sh
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/local_setup.zsh
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/local_setup.dsv
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/package.dsv
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/ament_index/resource_index/packages/moveit_task_constructor_capabilities
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/ament_index/resource_index/moveit_ros_move_group__pluginlib__plugin/moveit_task_constructor_capabilities
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/cmake/moveit_task_constructor_capabilitiesConfig.cmake
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/cmake/moveit_task_constructor_capabilitiesConfig-version.cmake
+-- Installing: /workspaces/shared/install/moveit_task_constructor_capabilities/share/moveit_task_constructor_capabilities/package.xml

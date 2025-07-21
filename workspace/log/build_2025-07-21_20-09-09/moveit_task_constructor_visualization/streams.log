@@ -1,0 +1,54 @@
+[0.032s] Invoking command in '/workspaces/shared/build/moveit_task_constructor_visualization': AMENT_PREFIX_PATH=/workspaces/shared/install/moveit_task_constructor_core:/workspaces/shared/install/moveit_task_constructor_msgs:/workspaces/shared/install/moveit_resources_fanuc_moveit_config:/workspaces/shared/install/rviz_marker_tools:/workspaces/shared/install/moveit_resources_fanuc_description:/workspaces/shared/install/moveit_msgs:${AMENT_PREFIX_PATH} CMAKE_MODULE_PATH=/workspaces/shared/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake CMAKE_PREFIX_PATH=/workspaces/shared/install/moveit_task_constructor_core:/workspaces/shared/install/moveit_task_constructor_msgs:/workspaces/shared/install/moveit_resources_fanuc_moveit_config:/workspaces/shared/install/rviz_marker_tools:/workspaces/shared/install/moveit_resources_fanuc_description:/workspaces/shared/install/moveit_msgs:/workspaces/moveit2_ws/install/pilz_industrial_motion_planner_testutils:/workspaces/moveit2_ws/install/moveit_runtime:/workspaces/moveit2_ws/install/moveit:/workspaces/moveit2_ws/install/moveit_planners:/workspaces/moveit2_ws/install/pilz_industrial_motion_planner:/workspaces/moveit2_ws/install/moveit_ros_control_interface:/workspaces/moveit2_ws/install/moveit_plugins:/workspaces/moveit2_ws/install/moveit_simple_controller_manager:/workspaces/moveit2_ws/install/moveit_setup_assistant:/workspaces/moveit2_ws/install/moveit_setup_srdf_plugins:/workspaces/moveit2_ws/install/moveit_setup_core_plugins:/workspaces/moveit2_ws/install/moveit_setup_controllers:/workspaces/moveit2_ws/install/moveit_setup_app_plugins:/workspaces/moveit2_ws/install/moveit_setup_framework:/workspaces/moveit2_ws/install/moveit_servo:/workspaces/moveit2_ws/install/moveit_ros_trajectory_cache:/workspaces/moveit2_ws/install/moveit_ros:/workspaces/moveit2_ws/install/moveit_ros_visualization:/workspaces/moveit2_ws/install/moveit_py:/workspaces/moveit2_ws/install/moveit_hybrid_planning:/workspaces/moveit2_ws/install/moveit_ros_planning_interface:/workspaces/moveit2_ws/install/moveit_ros_benchmarks:/workspaces/moveit2_ws/install/moveit_ros_warehouse:/workspaces/moveit2_ws/install/moveit_ros_robot_interaction:/workspaces/moveit2_ws/install/moveit_ros_perception:/workspaces/moveit2_ws/install/moveit_resources_prbt_pg70_support:/workspaces/moveit2_ws/install/moveit_resources_prbt_moveit_config:/workspaces/moveit2_ws/install/moveit_ros_move_group:/workspaces/moveit2_ws/install/moveit_planners_ompl:/workspaces/moveit2_ws/install/moveit_kinematics:/workspaces/moveit2_ws/install/moveit_ros_planning:/workspaces/moveit2_ws/install/moveit_ros_occupancy_map_monitor:/workspaces/moveit2_ws/install/moveit_resources_prbt_support:/workspaces/moveit2_ws/install/moveit_resources_prbt_ikfast_manipulator_plugin:/workspaces/moveit2_ws/install/moveit_resources:/workspaces/moveit2_ws/install/moveit_resources_pr2_description:/workspaces/moveit2_ws/install/moveit_resources_panda_moveit_config:/workspaces/moveit2_ws/install/dual_arm_panda_moveit_config:/workspaces/moveit2_ws/install/moveit_resources_panda_description:/workspaces/moveit2_ws/install/moveit_resources_fanuc_moveit_config:/workspaces/moveit2_ws/install/moveit_resources_fanuc_description:/workspaces/moveit2_ws/install/moveit_planners_stomp:/workspaces/moveit2_ws/install/moveit_planners_chomp:/workspaces/moveit2_ws/install/chomp_motion_planner:/workspaces/moveit2_ws/install/moveit_core:/workspaces/moveit2_ws/install/moveit_msgs:/workspaces/moveit2_ws/install/moveit_common:/workspaces/moveit2_ws/install/moveit_configs_utils:/opt/ros/humble LD_LIBRARY_PATH=/workspaces/shared/install/moveit_task_constructor_core/lib:/workspaces/shared/install/moveit_task_constructor_msgs/lib:/workspaces/shared/install/rviz_marker_tools/lib:/workspaces/shared/install/moveit_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/workspaces/shared/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/workspaces/shared/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/workspaces/shared/install/moveit_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /workspaces/shared/build/moveit_task_constructor_visualization -- -j24 -l24
+[0.115s] [  1%] [34m[1mAutomatic MOC for target motion_planning_tasks_properties[0m
+[0.115s] [  4%] [34m[1mAutomatic MOC for target moveit_task_visualization_tools[0m
+[0.115s] [  4%] [34m[1mAutomatic MOC for target motion_planning_tasks_utils[0m
+[0.115s] [  6%] [34m[1mAutomatic MOC for target gtest_main[0m
+[0.115s] [  7%] [34m[1mAutomatic MOC for target gtest[0m
+[0.115s] [  9%] [34m[1mAutomatic MOC for target gmock_main[0m
+[0.115s] [ 10%] [34m[1mAutomatic MOC for target gmock[0m
+[0.157s] [ 10%] Built target gtest_main_autogen
+[0.158s] [ 10%] Built target gmock_main_autogen
+[0.158s] [ 10%] Built target gtest_autogen
+[0.158s] [ 10%] Built target gmock_autogen
+[0.162s] [ 10%] Built target motion_planning_tasks_properties_autogen
+[0.198s] [ 12%] [32mBuilding CXX object gmock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o[0m
+[0.200s] [ 13%] [32mBuilding CXX object gmock/CMakeFiles/gmock.dir/gmock_autogen/mocs_compilation.cpp.o[0m
+[0.201s] [ 15%] [32mBuilding CXX object gmock/CMakeFiles/gmock.dir/opt/ros/humble/src/gtest_vendor/src/gtest-all.cc.o[0m
+[0.201s] [ 16%] [32mBuilding CXX object gmock/CMakeFiles/gmock.dir/src/gmock-all.cc.o[0m
+[0.201s] [ 18%] [32mBuilding CXX object gmock/CMakeFiles/gmock_main.dir/gmock_main_autogen/mocs_compilation.cpp.o[0m
+[0.205s] [ 21%] [32mBuilding CXX object motion_planning_tasks/properties/CMakeFiles/motion_planning_tasks_properties.dir/motion_planning_tasks_properties_autogen/mocs_compilation.cpp.o[0m
+[0.205s] [ 21%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[0.207s] [ 24%] [32mBuilding CXX object motion_planning_tasks/properties/CMakeFiles/motion_planning_tasks_properties.dir/property_factory.cpp.o[0m
+[0.207s] [ 24%] [32mBuilding CXX object motion_planning_tasks/properties/CMakeFiles/motion_planning_tasks_properties.dir/property_from_yaml.cpp.o[0m
+[0.208s] [ 26%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/gtest_main_autogen/mocs_compilation.cpp.o[0m
+[0.210s] [ 27%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/gtest_autogen/mocs_compilation.cpp.o[0m
+[0.212s] [ 29%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[0.276s] [ 29%] Built target motion_planning_tasks_utils_autogen
+[0.314s] [ 30%] [32mBuilding CXX object motion_planning_tasks/utils/CMakeFiles/motion_planning_tasks_utils.dir/motion_planning_tasks_utils_autogen/mocs_compilation.cpp.o[0m
+[0.314s] [ 32%] [32mBuilding CXX object motion_planning_tasks/utils/CMakeFiles/motion_planning_tasks_utils.dir/flat_merge_proxy_model.cpp.o[0m
+[0.316s] [ 33%] [32mBuilding CXX object motion_planning_tasks/utils/CMakeFiles/motion_planning_tasks_utils.dir/icon.cpp.o[0m
+[0.318s] [ 35%] [32mBuilding CXX object motion_planning_tasks/utils/CMakeFiles/motion_planning_tasks_utils.dir/tree_merge_proxy_model.cpp.o[0m
+[0.445s] [ 35%] Built target moveit_task_visualization_tools_autogen
+[0.493s] [ 38%] [32mBuilding CXX object visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/moveit_task_visualization_tools_autogen/mocs_compilation.cpp.o[0m
+[0.493s] [ 38%] [32mBuilding CXX object visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/marker_visualization.cpp.o[0m
+[0.494s] [ 40%] [32mBuilding CXX object visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/display_solution.cpp.o[0m
+[0.494s] [ 41%] [32mBuilding CXX object visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/task_solution_visualization.cpp.o[0m
+[0.496s] [ 43%] [32mBuilding CXX object visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/task_solution_panel.cpp.o[0m
+[1.208s] [ 44%] [32m[1mLinking CXX static library libgmock_main.a[0m
+[1.244s] [ 46%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[1.288s] [ 46%] Built target gmock_main
+[1.327s] [ 46%] Built target gtest_main
+[2.470s] [ 47%] [32m[1mLinking CXX shared library libmotion_planning_tasks_utils.so[0m
+[2.801s] [ 47%] Built target motion_planning_tasks_utils
+[3.395s] [ 49%] [32m[1mLinking CXX shared library libmotion_planning_tasks_properties.so[0m
+[3.839s] [ 49%] Built target motion_planning_tasks_properties
+[5.037s] gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:104: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/marker_visualization.cpp.o] Interrupt
+[5.037s] gmake[2]: *** [gtest/CMakeFiles/gtest.dir/build.make:90: gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o] Interrupt
+[5.037s] gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:90: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/display_solution.cpp.o] Interrupt
+[5.037s] gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:76: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/moveit_task_visualization_tools_autogen/mocs_compilation.cpp.o] Interrupt
+[5.037s] gmake[2]: *** [visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/build.make:132: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/src/task_solution_visualization.cpp.o] Interrupt
+[5.037s] gmake[2]: *** [gmock/CMakeFiles/gmock.dir/build.make:90: gmock/CMakeFiles/gmock.dir/opt/ros/humble/src/gtest_vendor/src/gtest-all.cc.o] Interrupt
+[5.037s] gmake[1]: *** [CMakeFiles/Makefile2:681: gtest/CMakeFiles/gtest.dir/all] Interrupt
+[5.037s] gmake[1]: *** [CMakeFiles/Makefile2:291: visualization_tools/CMakeFiles/moveit_task_visualization_tools.dir/all] Interrupt
+[5.037s] gmake[1]: *** [CMakeFiles/Makefile2:785: gmock/CMakeFiles/gmock.dir/all] Interrupt
+[5.038s] gmake: *** [Makefile:146: all] Interrupt
