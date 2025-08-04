@@ -29,15 +29,12 @@ A Docker-based environment providing MoveIt2 with Python bindings (`moveit_py`) 
 3. **Build and run:**
    ```bash
    # Basic container
-   docker-compose up -d moveit2
-   
-   # Development container with additional mounts
-   docker-compose --profile dev up -d moveit2-dev
+   docker compose up moveit2
    ```
 
 4. **Access the container:**
    ```bash
-   docker-compose exec moveit2 bash
+   docker exec -it moveit2 bash
    ```
 
 5. **Test MoveIt2 Python bindings:**
