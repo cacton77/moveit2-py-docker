@@ -18,7 +18,7 @@ A Docker-based environment providing MoveIt2 with Python bindings (`moveit_py`) 
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
-   cd moveit-py-docker
+   cd moveit2-py-docker
    ```
 
 2. **Enable GUI applications (Linux only):**
@@ -28,6 +28,8 @@ A Docker-based environment providing MoveIt2 with Python bindings (`moveit_py`) 
 
 3. **Build and run:**
    ```bash
+   docker compose build
+   
    # Basic container
    docker compose up moveit2
    ```
