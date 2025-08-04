@@ -5,7 +5,6 @@ ARG ROS_DISTRO=humble
 ENV ROS_DISTRO=${ROS_DISTRO}
 
 # Install MoveIt2 build dependencies
-# Install MoveIt2 build dependencies
 COPY packages.txt /tmp/packages.txt
 RUN apt-get update && \
     grep -v '^#' /tmp/packages.txt | grep -v '^$' | xargs apt-get install -y && \
