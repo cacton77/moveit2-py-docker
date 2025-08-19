@@ -22,6 +22,7 @@ libxinerama-dev
 libxcursor-dev
 libxi-dev
 
+
 # ROS Humble packages
 ros-humble-osqp-vendor
 ros-humble-stomp
@@ -43,3 +44,4 @@ ros-humble-py-binding-tools
 ros-humble-warehouse-ros-sqlite
 ros-humble-ros-testing
 ros-humble-launch-param-builder
+ros-humble-hpp-fcl
