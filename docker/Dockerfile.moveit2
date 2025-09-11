@@ -5,7 +5,7 @@ ARG ROS_DISTRO=humble
 ENV ROS_DISTRO=${ROS_DISTRO}
 
 # Install MoveIt2 build dependencies
-COPY packages.txt /tmp/packages.txt
+COPY docker/packages.txt /tmp/packages.txt
 RUN apt-get update && \
     grep -v '^#' /tmp/packages.txt | grep -v '^$' | xargs apt-get install -y && \
     rm -rf /var/lib/apt/lists/* /tmp/packages.txt
@@ -34,6 +34,7 @@ WORKDIR /workspaces/moveit2_ws/src
 RUN git clone https://github.com/ros-planning/moveit2.git -b main && \
     for repo in moveit2/moveit2.repos $(f="moveit2/moveit2.repos"; test -r $f && echo $f); do vcs import < "$repo"; done
 
+# Fix issues with includes and servo node name
 RUN sed -i 's/#include <types.h>/#include <sys\/types.h>/' \
     /workspaces/moveit2_ws/src/moveit2/moveit_core/online_signal_smoothing/include/moveit/online_signal_smoothing/acceleration_filter.hpp
 
@@ -53,8 +54,70 @@ RUN /bin/bash -c "source /opt/ros/${ROS_DISTRO}/setup.bash && \
     --allow-overriding moveit moveit_common moveit_configs_utils moveit_core moveit_hybrid_planning moveit_kinematics moveit_msgs moveit_planners moveit_planners_ompl moveit_resources_fanuc_moveit_config moveit_resources_panda_moveit_config moveit_ros_move_group moveit_ros_perception moveit_ros_planning moveit_ros_planning_interface moveit_ros_visualization moveit_servo moveit_simple_controller_manager \
     --cmake-args -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF"
 
-# Make sure that the workspace is always sourced
-RUN echo "source /workspaces/moveit2_ws/install/setup.bash" >> /etc/bash.bashrc
+# Install X11 and OpenGL utilities (Intel GPU optimized)
+RUN apt-get update && apt-get install -y \
+    mesa-utils \
+    mesa-utils-extra \
+    x11-xserver-utils \
+    libgl1-mesa-glx \
+    libgl1-mesa-dri \
+    libglu1-mesa \
+    libglew-dev \
+    libegl1-mesa \
+    libgbm1 \
+    libxrandr2 \
+    libxss1 \
+    libxcursor1 \
+    libxcomposite1 \
+    libxi6 \
+    libxtst6 \
+    # Intel GPU specific drivers
+    intel-media-va-driver \
+    i965-va-driver \
+    && rm -rf /var/lib/apt/lists/*
 
-# Create a shared workspace directory for host mounting
-RUN mkdir -p /workspaces/shared
+# Ensure proper OpenGL library links for Intel graphics
+RUN ln -sf /usr/lib/x86_64-linux-gnu/libGL.so.1 /usr/lib/x86_64-linux-gnu/libGL.so || true
+
+# Install overlay dependencies
+COPY docker/overlay_packages.txt /tmp/overlay_packages.txt
+RUN apt-get update && \
+    grep -v '^#' /tmp/overlay_packages.txt | grep -v '^$' | xargs apt-get install -y && \
+    rm -rf /var/lib/apt/lists/* /tmp/overlay_packages.txt
+
+COPY docker/requirements.txt /tmp/requirements.txt
+RUN python3 -m pip install -r /tmp/requirements.txt --force-reinstall && rm /tmp/requirements.txt
+
+# Create new user and add to video group
+RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
+
+ARG USERNAME=moveit_user
+ARG UID=1000
+ARG GID=${UID}
+ARG VIDEO_GID=44
+ARG DIALOUT_GID=20
+
+# Create the video group with the same GID as the host
+RUN getent group video || groupadd --gid ${VIDEO_GID} video
+RUN getent group dialout || groupadd --gid ${DIALOUT_GID} dialout
+
+RUN groupadd --gid ${GID} ${USERNAME} \
+ && useradd --uid ${UID} --gid ${GID} --create-home ${USERNAME} \
+ && usermod -a -G video ${USERNAME} \
+ && usermod -a -G dialout ${USERNAME} \
+ # Give sudo permissions without password 
+ && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
+ && chmod 0440 /etc/sudoers.d/${USERNAME} \
+ && mkdir -p /home/${USERNAME} \
+ && chown -R ${UID}:${GID} /home/${USERNAME}
+
+# Set the ownership of the shared workspace to the new user
+RUN mkdir -p /workspaces/shared_ws && chown -R ${UID}:${UID} /workspaces/shared_ws/
+
+# Set the user and source entrypoint in the user's .bashrc file
+COPY ./docker/entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+RUN echo "source /entrypoint.sh" >> /home/${USERNAME}/.bashrc
+
+USER ${USERNAME}
+ENTRYPOINT [ "/entrypoint.sh" ]
