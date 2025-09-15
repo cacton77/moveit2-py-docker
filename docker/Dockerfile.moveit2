@@ -88,6 +88,10 @@ RUN apt-get update && \
 COPY docker/requirements.txt /tmp/requirements.txt
 RUN python3 -m pip install -r /tmp/requirements.txt --force-reinstall && rm /tmp/requirements.txt
 
+# Install CycloneDDS
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+
 # Create new user and add to video group
 RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
 

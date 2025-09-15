@@ -17,5 +17,7 @@ then
     export INSPECTION_WS=/workspaces/shared_ws
 fi
 
+# Set Middleware to CycloneDDS
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 exec "$@"
