@@ -1,5 +1,4 @@
 repositories:
-    # Inspection_Cell
     Inspection_Cell:
         type: git
         url: https://github.com/DevanshB99/Inspection_Cell
