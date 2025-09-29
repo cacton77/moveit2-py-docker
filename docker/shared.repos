@@ -24,3 +24,8 @@ repositories:
         type: git
         url: https://github.com/cacton77/ViewpointGenerationData
         version: main
+
+    http_image_publisher:
+        type: git
+        url: https://github.com/cacton77/http_image_publisher
+        version: main
