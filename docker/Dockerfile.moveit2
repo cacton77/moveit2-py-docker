@@ -88,6 +88,17 @@ RUN apt-get update && \
 COPY docker/requirements.txt /tmp/requirements.txt
 RUN python3 -m pip install -r /tmp/requirements.txt --force-reinstall && rm /tmp/requirements.txt
 
+# Clone shared workspace repositories
+# Install git-lfs
+RUN apt-get update && apt-get install -y git-lfs && rm -rf /var/lib/apt/lists/*
+
+# Initialize git-lfs globally
+RUN git lfs install
+RUN mkdir -p /workspaces/shared_ws/src
+WORKDIR /workspaces/shared_ws/src
+COPY docker/shared.repos /tmp/shared.repos
+RUN vcs import < /tmp/shared.repos && rm /tmp/shared.repos
+
 # Install CycloneDDS
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
