@@ -1,1 +1,2 @@
 shared_ws/*
+!shared_ws/shared.repos

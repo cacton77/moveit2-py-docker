@@ -92,12 +92,14 @@ RUN python3 -m pip install -r /tmp/requirements.txt --force-reinstall && rm /tmp
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
 
-# Clone shared workspace repositories
 # Install git-lfs
 RUN apt-get update && apt-get install -y git-lfs && rm -rf /var/lib/apt/lists/*
 
 # Initialize git-lfs globally
 RUN git lfs install
+
+# Clone shared workspace repositories
+RUN echo HELLO?
 RUN mkdir -p /workspaces/shared_ws/src
 WORKDIR /workspaces/shared_ws/src
 COPY docker/shared.repos /tmp/shared.repos
@@ -118,17 +120,17 @@ RUN getent group video || groupadd --gid ${VIDEO_GID} video
 RUN getent group dialout || groupadd --gid ${DIALOUT_GID} dialout
 
 RUN groupadd --gid ${GID} ${USERNAME} \
- && useradd --uid ${UID} --gid ${GID} --create-home ${USERNAME} \
- && usermod -a -G video ${USERNAME} \
- && usermod -a -G dialout ${USERNAME} \
- # Give sudo permissions without password 
- && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
- && chmod 0440 /etc/sudoers.d/${USERNAME} \
- && mkdir -p /home/${USERNAME} \
- && chown -R ${UID}:${GID} /home/${USERNAME}
+    && useradd --uid ${UID} --gid ${GID} --create-home ${USERNAME} \
+    && usermod -a -G video ${USERNAME} \
+    && usermod -a -G dialout ${USERNAME} \
+    # Give sudo permissions without password 
+    && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
+    && chmod 0440 /etc/sudoers.d/${USERNAME} \
+    && mkdir -p /home/${USERNAME} \
+    && chown -R ${UID}:${GID} /home/${USERNAME}
 
 # Set the ownership of the shared workspace to the new user
-RUN mkdir -p /workspaces/shared_ws && chown -R ${UID}:${UID} /workspaces/shared_ws/
+RUN chown -R ${UID}:${UID} /workspaces/shared_ws/
 
 # Set the user and source entrypoint in the user's .bashrc file
 COPY ./docker/entrypoint.sh /
