@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MoveIt2 Docker
+Comment=Connect to MoveIt2 Docker container
+Exec=terminator --new-tab -e "bash -c '~/moveit2-py-docker/moveit2_docker.sh; exec bash'"
+Icon=/home/macs/moveit2-py-docker/assets/logo.png
+Terminal=false
+Categories=Development;
