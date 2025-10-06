@@ -99,12 +99,8 @@ RUN apt-get update && apt-get install -y git-lfs && rm -rf /var/lib/apt/lists/*
 RUN git lfs install
 
 # Clone shared workspace repositories
-RUN echo HELLO?
 RUN mkdir -p /workspaces/shared_ws/src
-WORKDIR /workspaces/shared_ws/src
-COPY docker/shared.repos /tmp/shared.repos
-RUN vcs import < /tmp/shared.repos && rm /tmp/shared.repos
-
+RUN mkdir -p /data
 
 # Create new user and add to video group
 RUN apt-get update && apt-get install -y sudo && rm -rf /var/lib/apt/lists/*
@@ -131,6 +127,7 @@ RUN groupadd --gid ${GID} ${USERNAME} \
 
 # Set the ownership of the shared workspace to the new user
 RUN chown -R ${UID}:${UID} /workspaces/shared_ws/
+RUN chown -R ${UID}:${UID} /data/
 
 # Set the user and source entrypoint in the user's .bashrc file
 COPY ./docker/entrypoint.sh /
