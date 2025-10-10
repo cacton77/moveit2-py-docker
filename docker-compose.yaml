@@ -31,7 +31,7 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       - ./shared_ws:/workspaces/shared_ws:rw
-      - ./data:/workspaces/data:rw
+      - ./data:/data:rw
       - /dev/dri:/dev/dri:rw  # Intel GPU device access
       - /dev:/dev
       - /tmp/runtime-${USERNAME:-macs}:/tmp/runtime-${USERNAME:-macs}:rw

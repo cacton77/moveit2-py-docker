@@ -27,10 +27,33 @@ else
 fi
 
 # Create applications directory if it doesn't exist
-APPS_DIR="$HOME/.local/share/applications"
+APPS_DIR="$HOME/.local/share/applications/inspection"
 echo ""
 echo "Ensuring applications directory exists: $APPS_DIR"
 mkdir -p "$APPS_DIR"
+
+# Copy .env file
+ENV_FILE=".env"
+if [ -f "$SCRIPT_DIR/$ENV_FILE" ]; then
+    echo "Copying .env file to $APPS_DIR..."
+    cp "$SCRIPT_DIR/$ENV_FILE" "$APPS_DIR/"
+    echo "✓ .env file installed"
+else
+    echo "✗ .env file not found: $SCRIPT_DIR/$ENV_FILE"
+    exit 1
+fi
+
+# Copy main script
+MAIN_SCRIPT="moveit2_docker.sh"
+if [ -f "$SCRIPT_DIR/$MAIN_SCRIPT" ]; then
+    echo "Copying main script to $APPS_DIR..."
+    cp "$SCRIPT_DIR/$MAIN_SCRIPT" "$APPS_DIR/"
+    chmod +x "$APPS_DIR/$MAIN_SCRIPT"
+    echo "✓ Main script installed"
+else
+    echo "✗ Main script not found: $SCRIPT_DIR/$MAIN_SCRIPT"
+    exit 1
+fi
 
 # Copy desktop file
 DESKTOP_FILE="moveit2-docker.desktop"
