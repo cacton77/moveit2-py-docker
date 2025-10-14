@@ -7,6 +7,41 @@ echo "MoveIt2 Docker Installation Script"
 echo "========================================="
 echo ""
 
+# Check nvidia-container-toolkit version
+# NVIDIA_TOOLKIT_VERSION=$(dpkg -l | grep nvidia-container-toolkit | awk '{print $2 " " $3}')
+# echo "NVIDIA Container Toolkit version: $NVIDIA_TOOLKIT_VERSION"
+# # If the version is not 1.17.x, prompt for installation
+# if [[ ! "$NVIDIA_TOOLKIT_VERSION" =~ ^1\.17\. ]]; then
+#     # Remove the incorrect repository file
+#     sudo rm /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+#     # Use the generic stable repository (not distro-specific)
+#     echo "deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://nvidia.github.io/libnvidia-container/stable/deb/\$(ARCH) /" | \
+#         sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+#     # Verify it looks correct
+#     cat /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+#     # Update package lists
+#     sudo apt-get update
+
+#     # Check what version is available
+#     apt-cache policy nvidia-container-toolkit
+
+#     # Remove all nvidia-container packages
+#     sudo apt-get remove --purge nvidia-container-toolkit nvidia-container-toolkit-base libnvidia-container-tools libnvidia-container1
+
+#     # Install all packages from NVIDIA repository at once
+#     sudo apt-get install -y \
+#         nvidia-container-toolkit=1.17.8-1 \
+#         nvidia-container-toolkit-base=1.17.8-1 \
+#         libnvidia-container-tools=1.17.8-1 \
+#         libnvidia-container1=1.17.8-1
+
+#     # Verify version
+#     nvidia-container-toolkit --version
+# fi
+
 # Get the directory where this script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -30,6 +65,9 @@ fi
 APPS_DIR="$HOME/.local/share/applications/inspection"
 echo ""
 echo "Ensuring applications directory exists: $APPS_DIR"
+if [ -d "$APPS_DIR" ]; then
+    rm -rf "$APPS_DIR"
+fi
 mkdir -p "$APPS_DIR"
 
 # Copy .env file
@@ -55,15 +93,52 @@ else
     exit 1
 fi
 
+# Copy assets
+ASSETS_DIR="$APPS_DIR/assets"
+echo ""
+echo "Ensuring assets directory exists: $ASSETS_DIR"
+mkdir -p "$ASSETS_DIR"
+
+# Copy asset files
+for asset in "$SCRIPT_DIR/assets/"*; do
+    if [ -f "$asset" ]; then
+        echo "Copying asset file to $ASSETS_DIR..."
+        cp "$asset" "$ASSETS_DIR/"
+    fi
+done
+
 # Copy desktop file
-DESKTOP_FILE="moveit2-docker.desktop"
-if [ -f "$SCRIPT_DIR/$DESKTOP_FILE" ]; then
-    echo "Copying desktop file to $APPS_DIR..."
-    cp "$SCRIPT_DIR/$DESKTOP_FILE" "$APPS_DIR/"
-    chmod +x "$APPS_DIR/$DESKTOP_FILE"
-    echo "✓ Desktop file installed"
+BRINGUP_DESKTOP_FILE="bringup.desktop"
+if [ -f "$SCRIPT_DIR/$BRINGUP_DESKTOP_FILE" ]; then
+    echo "Copying bringup desktop file to $APPS_DIR..."
+    cp "$SCRIPT_DIR/$BRINGUP_DESKTOP_FILE" "$APPS_DIR/"
+    chmod +x "$APPS_DIR/$BRINGUP_DESKTOP_FILE"
+    echo "✓ Bringup desktop file installed"
+    echo "Icon=$ASSETS_DIR/bringup_icon.png" >> "$APPS_DIR/$BRINGUP_DESKTOP_FILE"
+    echo "Creating bringup desktop shortcut..."
+    # Remove existing shortcut if it exists
+    rm -f "$HOME/Desktop/$BRINGUP_DESKTOP_FILE"
+    ln -s "$APPS_DIR/$BRINGUP_DESKTOP_FILE" "$HOME/Desktop/"
+    echo "✓ Desktop shortcut created"
 else
-    echo "✗ Desktop file not found: $SCRIPT_DIR/$DESKTOP_FILE"
+    echo "✗ Bringup desktop file not found: $SCRIPT_DIR/$BRINGUP_DESKTOP_FILE"
+    exit 1
+fi
+# Copy devel desktop file
+DEVEL_DESKTOP_FILE="devel.desktop"
+if [ -f "$SCRIPT_DIR/$DEVEL_DESKTOP_FILE" ]; then
+    echo "Copying devel desktop file to $APPS_DIR..."
+    cp "$SCRIPT_DIR/$DEVEL_DESKTOP_FILE" "$APPS_DIR/"
+    chmod +x "$APPS_DIR/$DEVEL_DESKTOP_FILE"
+    echo "✓ Devel desktop file installed"
+    echo "Icon=$ASSETS_DIR/devel_icon.png" >> "$APPS_DIR/$DEVEL_DESKTOP_FILE"
+    echo "Creating devel desktop shortcut..."
+    # Remove existing shortcut if it exists
+    rm -f "$HOME/Desktop/$DEVEL_DESKTOP_FILE"
+    ln -s "$APPS_DIR/$DEVEL_DESKTOP_FILE" "$HOME/Desktop/"
+    echo "✓ Desktop shortcut created"
+else
+    echo "✗ Devel desktop file not found: $SCRIPT_DIR/$DEVEL_DESKTOP_FILE"
     exit 1
 fi
 
@@ -84,6 +159,17 @@ if command -v update-desktop-database &> /dev/null; then
     echo "Updating desktop database..."
     update-desktop-database "$APPS_DIR"
     echo "✓ Desktop database updated"
+fi
+
+# Import dependencies into shared_ws directory
+SHARED_WS="$SCRIPT_DIR/shared_ws"
+# If src folder doesn't exist
+if [ ! -d "$SHARED_WS/src" ]; then
+    echo "Creating src directory: $SHARED_WS/src"
+    mkdir -p "$SHARED_WS/src"
+    cd "$SHARED_WS/src"
+    echo "Importing dependencies..."
+    vcs import < ../shared.repos
 fi
 
 echo ""

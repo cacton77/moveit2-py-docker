@@ -10,14 +10,20 @@ then
     source /workspaces/moveit2_ws/install/setup.bash
 fi
 
+# Build the overlay workspace
+if [ -d /workspaces/shared_ws/src ]
+then
+    colcon build --base-paths /workspaces/shared_ws/src
+fi
+
 # Source the overlay workspace, if built
 if [ -f /workspaces/shared_ws/install/setup.bash ]
 then
     source /workspaces/shared_ws/install/setup.bash
+    export INSPECTION_WS=/workspaces/shared_ws
 fi
 
 # Set Middleware to CycloneDDS
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-export INSPECTION_WS=/workspaces/shared_ws
 
-exec "$@"
+exec "ros2 launch viewpoint_generation bringup.launch.py $@"

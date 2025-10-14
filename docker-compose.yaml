@@ -21,31 +21,29 @@ services:
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
       - XAUTHORITY=/tmp/.docker.xauth
-      # Remove all NVIDIA variables since you have Intel GPU
       - XDG_RUNTIME_DIR=/tmp/runtime-${USERNAME:-macs}
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
-      - DISPLAY=${DISPLAY}
-      - QT_X11_NO_MITSHM=1
+      - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
       - ./shared_ws:/workspaces/shared_ws:rw
       - ./data:/data:rw
-      - /dev/dri:/dev/dri:rw  # Intel GPU device access
+      # REMOVE /dev/dri - that's for Intel
       - /dev:/dev
       - /tmp/runtime-${USERNAME:-macs}:/tmp/runtime-${USERNAME:-macs}:rw
     device_cgroup_rules:
       - 'c *:* rmw'
+    runtime: nvidia  # Add this!
     deploy:
       resources:
         reservations:
           devices:
             - driver: nvidia
-              count: 1
-              capabilities: [ gpu ]
-    devices:
-      - /dev/dri:/dev/dri  # Direct Intel GPU access
+              count: all  # Changed from 1 to all
+              capabilities: [gpu, utility, compute, graphics]  # Added graphics!
+    # REMOVE the devices section with /dev/dri
     working_dir: /workspaces/shared_ws
     user: ${UID:-1000}:${UID:-1000}
     command: ["/bin/bash"]
