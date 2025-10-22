@@ -159,6 +159,7 @@ if command -v update-desktop-database &> /dev/null; then
     echo "Updating desktop database..."
     update-desktop-database "$APPS_DIR"
     echo "✓ Desktop database updated"
+    echo ""
 fi
 
 # Import dependencies into shared_ws directory
@@ -170,6 +171,25 @@ if [ ! -d "$SHARED_WS/src" ]; then
     cd "$SHARED_WS/src"
     echo "Importing dependencies..."
     vcs import < ../shared.repos
+    echo "✓ Dependencies imported"
+else
+    echo "✓ Src directory already exists: $SHARED_WS/src"
+fi
+
+# Import data repos into data directory
+DATA_DIR="$SCRIPT_DIR/data"
+if [ ! -d "$DATA_DIR/ViewpointGenerationData" ]; then
+    cd "$DATA_DIR"
+    echo "Importing data repositories..."
+    vcs import < ./data.repos
+    # git lfs
+    cd "$DATA_DIR/ViewpointGenerationData"
+    git lfs install
+    git lfs pull
+    git lfs fetch --all
+    echo "✓ Data repositories imported"
+else
+    echo "✓ Data directory already exists: $DATA_DIR"
 fi
 
 echo ""
