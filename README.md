@@ -1,4 +1,4 @@
-# MoveIt2 Python Docker
+# MoveIt2 Python Docker for MacOS UTM
 
 A Docker-based environment providing MoveIt2 with Python bindings (`moveit_py`) for ROS 2 Humble, built from source to enable functionality not available in standard apt packages. Designed to work both as a standalone development environment and as an overlay for Isaac ROS.
 
