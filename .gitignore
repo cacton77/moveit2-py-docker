@@ -1,3 +1,4 @@
 shared_ws/*
 !shared_ws/shared.repos
 data/*
+!data/data.repos
